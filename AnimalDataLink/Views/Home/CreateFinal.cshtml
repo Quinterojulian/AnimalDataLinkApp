@@ -1,0 +1,73 @@
+﻿@model AnimalDataLinkApp.Models.ViewModel.UsuarioCreateF
+@{
+    ViewData["Title"] = "Crear Usuario";
+    Layout = "~/Views/Shared/_LayuotLog.cshtml";
+}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modernize Free</title>
+    <link rel="shortcut icon" type="image/png" href="../wwwroot/images/logos/favicon.png" />
+    <link rel="stylesheet" href="../wwwroot/css/styles.min.css" />
+</head>
+
+
+<body>
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed">
+        <div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center w-100">
+                <div class="row justify-content-center w-100">
+                    <div class="col-md-10 col-lg-8 col-xxl-3">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                                    <img src="../images/logos/dark-logo.svg" width="180" alt="">
+                                </a>
+                                <h3 class="text-center">AnimalDataLink</h3>
+                                <br />
+                                <form asp-action="CreateFinal" method="post">
+                                    <input asp-for="usuario" hidden/>
+                                    <input asp-for="pass" hidden />
+                                    <p class="text-center">Crear Cuenta</p>
+                                    <div class="mb-3 form-group">
+                                        <label for="exampleInputName" class="form-label">Nombre completo</label>
+                                        <input asp-for="nombreCompleto" class="form-control" id="nombreCompleto" type="text" />
+                                        <span asp-validation-for="nombreCompleto" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-4 form-group">
+                                        <label for="exampleInputEmail" class="form-label">Correo</label>
+                                        <input asp-for="email" class="form-control" id="email" type="email" />
+                                        <span asp-validation-for="email" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-4 form-group">
+                                        <label for="exampleInputPhone" class="form-label">Telefono</label>
+                                        <input asp-for="telefono" class="form-control" id="telefono" type="text" />
+                                        <span asp-validation-for="telefono" class="text-danger"></span>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" style="background-color: #60A6E7AB;">Crear</button>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <p class="fs-4 mb-0 fw-bold">¿Ya tienes una cuenta?</p>
+                                        <a class="text-primary fw-bold ms-2" asp-action="LogIn">Ingresa</a>
+                                    </div>
+                                </form>
+
+                                @section Scripts {
+                                    <partial name="_ValidationScriptsPartial" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../wwwroot/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../wwwroot/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

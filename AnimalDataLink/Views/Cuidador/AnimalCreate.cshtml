@@ -1,0 +1,100 @@
+﻿@model AnimalDataLinkApp.Models.ViewModel.AnimalCreate
+@{
+    ViewData["Title"] = "AnimalCreate";
+    var mensaje = ViewBag.Error as string;
+}
+
+
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body" style="background-color: #D4EBFFAB">
+                <div style="display: flex; justify-content: center; align-items: center; ">
+                    <img src="~/Imagenes/logo.jpeg" alt="AnimalDataLinkApp" />
+                </div>
+                <h5 class="card-title fw-semibold mb-4" style="text-align:center">FORMULARIO DE REGISTRO DE ANIMALES</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <form asp-action="AnimalCreate" method="post">
+                            <div class="mb-3">
+                                <label asp-for="nombreAnimal" class="control-label"></label>
+                                <input asp-for="nombreAnimal" class="form-control" type="text" />
+                                <span asp-validation-for="nombreAnimal" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="especie" class="control-label"></label>
+                                <input asp-for="especie" class="form-control" type="text" />
+                                <span asp-validation-for="especie" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="habitat" class="control-label"></label>
+                                <input asp-for="habitat" class="form-control" type="text" />
+                                <span asp-validation-for="habitat" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="tipoComida" class="control-label"></label>
+                                <input asp-for="tipoComida" class="form-control"  type="text" />
+                                <span asp-validation-for="tipoComida" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="aseo" class="control-label"></label>
+                                <textarea asp-for="aseo" class="form-control" type="text" ></textarea>
+                                <span asp-validation-for="aseo" class="text-danger"></span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <!-- Botón alineado a la izquierda -->
+                                <a class="btn btn-primary" asp-action="Index" asp-controller="Cuidador">
+                                    <i class="bi bi-back"></i> Volver
+                                </a>
+                                <!-- Botón alineado a la derecha -->
+                                <!-- Botón alineado a la derecha -->
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-save"></i> Enviar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Bootstrap -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Cabecera del modal -->
+            <div class="modal-header">
+                <h4 class="modal-title">Mensaje Importante</h4>
+            </div>
+
+            <!-- Cuerpo del modal -->
+            <div class="modal-body">
+                @mensaje
+            </div>
+
+            <!-- Pie de página del modal -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate.unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <!-- Enlazar jQuery y JavaScript de Bootstrap (opcional, si usas Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        var mensaje = '@mensaje';
+        if (mensaje && mensaje.trim() !== "") {
+            $('#myModal').modal('show'); // Mostrar el modal
+        }
+    });
+</script>

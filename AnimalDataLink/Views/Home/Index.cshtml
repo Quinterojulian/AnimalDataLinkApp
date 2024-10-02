@@ -1,8 +1,90 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Ingreso";
+    Layout = "~/Views/Shared/_LayoutW.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-4">
+    <div class="row">
+
+        <!-- Tarjeta 1 -->
+
+        <div class="col-md-3 d-flex">
+            <div class="card text-center flex-fill" style="background-color: #60A6E7AB; min-height: 600px;">
+                <div class="card-body d-flex flex-column">
+                    <div class="mb-3">
+                        <img src="~/Imagenes/pata.png" alt="Descripción de la imagen" style="border-radius: 50%;">
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <h5 class="card-title">Cerca de ti</h5>
+                    <br />
+                    <br />
+                    <br />
+                    <p class="card-text">Más de ... centros entre Bogotá y Medellín</p>
+                    <div class="mt-auto"></div> <!-- Esto empuja el contenido hacia arriba -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="col-md-3 d-flex">
+            <div class="card text-center flex-fill" style="background-color: #60A6E7AB; min-height: 600px;">
+                <div class="card-body d-flex flex-column">
+                    <div class="mb-3">
+                        <img src="~/Imagenes/salud.png" alt="Descripción de la imagen" style="border-radius: 50%;">
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <h5 class="card-title">Profesionales especializados</h5>
+                    <br />
+                    <br />
+                    <br />
+                    <p class="card-text">Más de 200 expertos veterinarios que dedican el máximo cuidado y cariño a los animalitos</p>
+                    <div class="mt-auto"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="col-md-3 d-flex">
+            <div class="card text-center flex-fill" style="background-color: #60A6E7AB; min-height: 600px;">
+                <div class="card-body d-flex flex-column">
+                    <div class="mb-3">
+                        <img src="~/Imagenes/patota.png" alt="Descripción de la imagen" style="border-radius: 50%;">
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <h5 class="card-title">Servicio integral</h5>
+                    <br />
+                    <br />
+                    <br />
+                    <p class="card-text">Servicio especializado para adaptarnos a las necesidades de cada mascota</p>
+                    <div class="mt-auto"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="col-md-3 d-flex">
+            <div class="card text-center flex-fill" style="background-color: #60A6E7AB; min-height: 600px;">
+                <div class="card-body d-flex flex-column">
+                    <div class="mb-3">
+                        <img src="~/Imagenes/config.png" alt="Descripción de la imagen" style="border-radius: 50%;">
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <h5 class="card-title">Campañas</h5>
+                    <br />
+                    <br />
+                    <br />
+                    <p class="card-text">Hacemos campañas periódicas, ¡estate muy atento!</p>
+                    <div class="mt-auto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

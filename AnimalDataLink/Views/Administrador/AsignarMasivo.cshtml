@@ -1,0 +1,92 @@
+﻿@model AnimalDataLinkApp.Models.ViewModel.AsignarViewModel
+@{
+	ViewData["Title"] = "Asignar Cuidador";
+	var mensaje = ViewBag.errores as string[];
+}
+
+
+<div class="container-fluid">
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-body" style="background-color: #D4EBFFAB">
+				<div style="display: flex; justify-content: center; align-items: center; ">
+					<img src="~/Imagenes/logo.jpeg" alt="AnimalDataLinkApp" />
+				</div>
+				<h5 class="card-title fw-semibold mb-4" style="text-align:center">FORMULARIO DE REGISTRO DE ANIMALES</h5>
+				<div class="card">
+					<div class="card-body">
+						<form asp-action="AsignarMasivo" method="post">
+							<div>
+								<label for="ProductoSeleccionadoId">Seleccione un Producto:</label>
+								<select asp-for="idCuidador" class="form-control" asp-items="ViewBag.cuidadores"></select>
+							</div>
+
+							<div>
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Seleccionar</th>
+											<th>Nombre</th>
+										</tr>
+									</thead>
+									<tbody>
+										@for (int i = 0; i < Model.animales.Count; i++)
+										{
+											<tr>
+												<td>
+													<input type="hidden" asp-for="animales[i].Id" /> <!-- Asegúrate de enviar el ID -->
+													<input type="checkbox" asp-for="animales[i].EstaSeleccionado" />
+												</td>
+												<td>@Model.animales[i].Nombre</td>
+											</tr>
+										}
+									</tbody>
+								</table>
+							</div>
+
+							<button type="submit">Enviar</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal Bootstrap -->
+<div class="modal" id="myModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Cabecera del modal -->
+			<div class="modal-header">
+				<h4 class="modal-title">Mensaje Importante</h4>
+			</div>
+
+			<!-- Cuerpo del modal -->
+			<div class="modal-body">
+				@mensaje
+			</div>
+
+			<!-- Pie de página del modal -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+@section Scripts {
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate.unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+	<!-- Enlazar jQuery y JavaScript de Bootstrap (opcional, si usas Bootstrap) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+}
+<script type="text/javascript">
+	$(document).ready(function () {
+		var mensaje = '@mensaje';
+		if (mensaje && mensaje.trim() !== "") {
+			$('#myModal').modal('show'); // Mostrar el modal
+		}
+	});
+</script>

@@ -1,0 +1,42 @@
+﻿@model AnimalDataLinkApp.Models.ViewModel.UsuarioCreate
+@{
+    ViewData["Title"] = "Ingreso";
+    Layout = "~/Views/Shared/_LayuotLog.cshtml";
+}
+<body>
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed">
+        <div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center w-100">
+                <div class="row justify-content-center w-100">
+                    <div class="col-md-10 col-lg-8 col-xxl-3">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                                    <img src="../images/logos/dark-logo.svg" width="180" alt="">
+                                </a>
+                                <h3 class="text-center">Iniciar sesión</h3>
+                                <form asp-action="LogIn" method="post">
+                                    <div class="mb-3 form-group">
+                                        <label for="exampleInputEmail1" class="form-label">Usuario</label>
+                                        <input asp-for="usuario" class="form-control" id="usuario" type="text" />
+                                    </div>
+                                    <div class="mb-4 form-group">
+                                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                                        <input asp-for="pass" class="form-control" id="pass" type="password" />
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" style="background-color: #60A6E7AB;">Iniciar</button>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <a class="text-primary fw-bold ms-2" asp-action="Create">Crear Cuenta</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../wwwroot/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../wwwroot/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>

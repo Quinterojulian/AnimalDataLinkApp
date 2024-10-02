@@ -1,0 +1,91 @@
+﻿@model AnimalDataLinkApp.Models.ViewModel.RegistroSaludExitoso
+@{
+	ViewData["Title"] = "Asignar Cuidador";
+}
+
+
+<div class="container-fluid">
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-body" style="background-color: #D4EBFFAB">
+				<div style="display: flex; justify-content: center; align-items: center; ">
+					<img src="~/Imagenes/logo.jpeg" alt="AnimalDataLinkApp" />
+				</div>
+				<h5 class="card-title fw-semibold mb-4" style="text-align:center">REGISTRO DE SALUD EXITOSO</h5>
+				<div class="card">
+					<div class="card-body">
+						<form asp-action="RegistrarSalud" method="post">			
+
+							<div class="mb-3 row">
+								<h3>Informacion del animal:</h3>
+
+								<label class="col-sm-2 col-form-label">Nombre:</label>
+								<div class="col-sm-10">
+									<input asp-for="nombreAnimal" class="form-control-plaintext" id="nombreAnimal" type="text" />
+								</div>
+								<br />
+								<label class="col-sm-2 col-form-label">Especie:</label>
+								<div class="col-sm-10">
+									<input asp-for="especie" class="form-control-plaintext"  type="text" />
+								</div>
+								<br />
+								<label class="col-sm-2 col-form-label">Habitat:</label>
+								<div class="form-floating">
+									<textarea asp-for="habitat" class="form-control" type="text" readonly></textarea>
+								</div>
+								<br />
+								<label class="col-sm-2 col-form-label">Tipo Comida:</label>
+								<div class="form-floating">
+									<textarea asp-for="tipoComida" class="form-control" type="text" readonly></textarea>
+								</div>
+								<br />
+								<label class="col-sm-2 col-form-label">Aseo:</label>
+								<div class="form-floating">
+									<textarea asp-for="aseo" class="form-control" type="text" readonly></textarea>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label asp-for="examenesLab" class="control-label"></label>
+								<textarea asp-for="examenesLab" class="form-control" type="text" readonly></textarea>
+							</div>
+							<div class="mb-3">
+								<label asp-for="enfermedades" class="control-label"></label>
+								<textarea asp-for="enfermedades" class="form-control" type="text" readonly></textarea>
+							</div>
+							<div class="mb-3">
+								<label asp-for="controlPeso" class="control-label"></label>
+								<textarea asp-for="controlPeso" class="form-control" type="text" readonly></textarea>
+							</div>
+							<div class="mb-3">
+								<label asp-for="vacunas" class="control-label"></label>
+								<textarea asp-for="vacunas" class="form-control" type="text" readonly></textarea>
+							</div>
+							<div class="mb-3">
+								<label asp-for="alergias" class="control-label"></label>
+								<textarea asp-for="alergias" class="form-control" type="text" readonly></textarea>
+							</div>
+							<div class="mb-3">
+								<label asp-for="medicamentos" class="control-label"></label>
+								<textarea asp-for="medicamentos" class="form-control" type="text" readonly></textarea>
+							</div>
+							<div style="display: flex; justify-content: space-between;">
+								<!-- Botón alineado a la izquierda -->
+								<a class="btn btn-primary" asp-action="Index" asp-controller="Cuidador">
+									<i class="bi bi-back"></i> Volver
+								</a>
+
+								<!-- Botón alineado a la derecha -->
+								<button type="submit" class="btn btn-primary">
+									<i class="bi bi-save"></i> Enviar
+								</button>
+							</div>
+
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

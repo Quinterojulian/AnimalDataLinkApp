@@ -1,0 +1,52 @@
+﻿@model AnimalDataLinkApp.Models.ViewModel.AnimalCreate
+@{
+	ViewData["Title"] = "Confirmacion exitosa";
+	var mensaje = ViewBag.Error as string;
+}
+
+
+<div class="container-fluid">
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-body" style="background-color: #D4EBFFAB">
+				<div style="display: flex; justify-content: center; align-items: center; ">
+					<img src="~/Imagenes/logo.jpeg" alt="AnimalDataLinkApp" />
+				</div>
+				<br />
+				<br />
+				<h5 class="card-title fw-semibold mb-4" style="text-align:center">SE HA REGISTRADO SATISFACTORIAMENTE EL SIGUIENTE ANIMAL</h5>
+				<div class="card">
+					<div class="card-body">
+
+						<div class="mb-3">
+							<label asp-for="nombreAnimal" class="control-label"></label>
+							<input asp-for="nombreAnimal" class="form-control" type="text" readonly />
+						</div>
+						<div class="mb-3">
+							<label asp-for="especie" class="control-label"></label>
+							<input asp-for="especie" class="form-control" type="text" readonly />
+						</div>
+						<div class="mb-3">
+							<label asp-for="habitat" class="control-label"></label>
+							<input asp-for="habitat" class="form-control" type="text" readonly />
+						</div>
+						<div class="mb-3">
+							<label asp-for="tipoComida" class="control-label"></label>
+							<input asp-for="tipoComida" class="form-control" type="text" readonly />
+						</div>
+						<div class="mb-3">
+							<label asp-for="aseo" class="control-label"></label>
+							<textarea asp-for="aseo" class="form-control" type="text" readonly></textarea>
+						</div>
+						<div style="display: flex; justify-content: center;">
+							<!-- Botón alineado a la izquierda -->
+							<a class="btn btn-primary" asp-action="Index" asp-controller="Cuidador">
+								<i class="bi bi-back"></i> Volver
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

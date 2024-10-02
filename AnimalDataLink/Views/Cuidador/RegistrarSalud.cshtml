@@ -1,0 +1,135 @@
+﻿@model AnimalDataLinkApp.Models.ViewModel.RegistrarSaludViewModel
+@{
+	ViewData["Title"] = "Asignar Cuidador";
+}
+
+
+<div class="container-fluid">
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-body" style="background-color: #D4EBFFAB">
+				<div style="display: flex; justify-content: center; align-items: center; ">
+					<img src="~/Imagenes/logo.jpeg" alt="AnimalDataLinkApp" />
+				</div>
+				<h5 class="card-title fw-semibold mb-4" style="text-align:center">FORMULARIO DE REGISTRO DE ANIMALES</h5>
+				<div class="card">
+					<div class="card-body">
+						<form asp-action="RegistrarSalud" method="post">
+							<div>
+								<label>Lista de animales:</label>
+								<select asp-for="idAnimal" class="form-control" asp-items="ViewBag.listAnimales"></select>
+								<span asp-validation-for="idAnimal" class="text-danger"></span>
+							</div>
+
+							<div class="mb-3 row">
+								<h3>Informacion del animal:</h3>
+
+								<label class="col-sm-2 col-form-label">Nombre:</label>
+								<div class="col-sm-10">
+									<input type="text" readonly class="form-control-plaintext" id="nombre">
+								</div>
+								<br />
+								<label class="col-sm-2 col-form-label">Especie:</label>
+								<div class="col-sm-10">
+									<input type="text" readonly class="form-control-plaintext" id="especie">
+								</div>
+								<br />
+								<label class="col-sm-2 col-form-label">Habitat:</label>
+								<div class="form-floating">
+									<textarea class="form-control" readonly id="habitat"></textarea>
+								</div>
+								<br />
+								<label class="col-sm-2 col-form-label">Tipo Comida:</label>
+								<div class="form-floating">
+									<textarea class="form-control" readonly id="tipoComida"></textarea>
+								</div>
+								<br />
+								<label class="col-sm-2 col-form-label">Aseo:</label>
+								<div class="form-floating">
+									<textarea class="form-control" readonly id="aseo"></textarea>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label asp-for="examenesLab" class="control-label"></label>
+								<textarea asp-for="examenesLab" class="form-control" type="text"></textarea>
+								<span asp-validation-for="examenesLab" class="text-danger"></span>
+							</div>
+							<div class="mb-3">
+								<label asp-for="enfermedades" class="control-label"></label>
+								<textarea asp-for="enfermedades" class="form-control" type="text"></textarea>
+								<span asp-validation-for="enfermedades" class="text-danger"></span>
+							</div>
+							<div class="mb-3">
+								<label asp-for="controlPeso" class="control-label"></label>
+								<textarea asp-for="controlPeso" class="form-control" type="text"></textarea>
+								<span asp-validation-for="controlPeso" class="text-danger"></span>
+							</div>
+							<div class="mb-3">
+								<label asp-for="vacunas" class="control-label"></label>
+								<textarea asp-for="vacunas" class="form-control" type="text"></textarea>
+								<span asp-validation-for="vacunas" class="text-danger"></span>
+							</div>
+							<div class="mb-3">
+								<label asp-for="alergias" class="control-label"></label>
+								<textarea asp-for="alergias" class="form-control" type="text"></textarea>
+								<span asp-validation-for="alergias" class="text-danger"></span>
+							</div>
+							<div class="mb-3">
+								<label asp-for="medicamentos" class="control-label"></label>
+								<textarea asp-for="medicamentos" class="form-control" type="text"></textarea>
+								<span asp-validation-for="medicamentos" class="text-danger"></span>
+							</div>
+							<div style="display: flex; justify-content: space-between;">
+								<!-- Botón alineado a la izquierda -->
+								<a class="btn btn-primary" asp-action="Index" asp-controller="Cuidador">
+									<i class="bi bi-back"></i> Volver
+								</a>
+
+								<!-- Botón alineado a la derecha -->
+								<button type="submit" class="btn btn-primary">
+									<i class="bi bi-save"></i> Enviar
+								</button>
+							</div>
+
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+
+			$('#idAnimal').change(function () {
+
+				console.log("entra");
+				var idAnimal = $(this).val();
+
+				// Hacer la llamada AJAX para obtener los datos del animal seleccionado
+				$.ajax({
+					url: '/Cuidador/GetAnimalDetails',  // Acción del controlador que devolverá los datos
+					type: 'GET',
+					data: { id: idAnimal },  // Enviar el ID del animal seleccionado
+					success: function (data) {
+						// Actualizar los campos con los datos recibidos
+						$('#nombre').val(data.nombre);
+						$('#especie').val(data.especie);
+						$('#habitat').val(data.habitat);
+						$('#tipoComida').val(data.tipoComida);
+						$('#aseo').val(data.aseo);
+					},
+					error: function (error) {
+						//console.log(error);
+					}
+				});
+			});
+
+		});
+	</script>
+}
