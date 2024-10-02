@@ -1,0 +1,13 @@
+# Ignorar la carpeta de Visual Studio
+.vs/
+
+# Ignorar archivos de compilación
+[Bb]in/
+[Oo]bj/
+[Dd]ebug*/
+[Rr]elease*/
+
+# Ignorar otros archivos comunes no necesarios en el repositorio
+*.user
+*.suo
+*.userprefs
